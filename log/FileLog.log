@@ -3012,3 +3012,82 @@ HikariPool-24 - Shutdown initiated...
 Date: 2024-04-05 10:49:45 - [SpringApplicationShutdownHook] INFO  
 HikariPool-24 - Shutdown completed. 
 -----
+Date: 2024-04-05 12:06:38 - [restartedMain] INFO  
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+[32m :: Spring Boot :: [39m              [2m (v3.0.0)[0;39m
+
+ 
+-----
+Date: 2024-04-05 12:06:38 - [restartedMain] INFO  
+Starting SpringJwtApplication using Java 21.0.2 with PID 80908 (C:\Users\pacal\Desktop\ready2use\microservices_java\target\classes started by pacal in C:\Users\pacal\Desktop\ready2use\microservices_java) 
+-----
+Date: 2024-04-05 12:06:38 - [restartedMain] INFO  
+No active profile set, falling back to 1 default profile: "default" 
+-----
+Date: 2024-04-05 12:06:39 - [restartedMain] INFO  
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+-----
+Date: 2024-04-05 12:06:39 - [restartedMain] INFO  
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+-----
+Date: 2024-04-05 12:06:40 - [restartedMain] INFO  
+Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+-----
+Date: 2024-04-05 12:06:41 - [restartedMain] INFO  
+Finished Spring Data repository scanning in 185 ms. Found 2 JPA repository interfaces. 
+-----
+Date: 2024-04-05 12:06:43 - [restartedMain] INFO  
+Tomcat initialized with port(s): 8080 (http) 
+-----
+Date: 2024-04-05 12:06:43 - [restartedMain] INFO  
+Starting service [Tomcat] 
+-----
+Date: 2024-04-05 12:06:43 - [restartedMain] INFO  
+Starting Servlet engine: [Apache Tomcat/10.1.1] 
+-----
+Date: 2024-04-05 12:06:44 - [restartedMain] INFO  
+Initializing Spring embedded WebApplicationContext 
+-----
+Date: 2024-04-05 12:06:44 - [restartedMain] INFO  
+Root WebApplicationContext: initialization completed in 5187 ms 
+-----
+Date: 2024-04-05 12:06:44 - [restartedMain] ERROR 
+Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'webSecurityConfig': Unsatisfied dependency expressed through field 'userDetailsService': No qualifying bean of type 'org.springframework.security.core.userdetails.UserDetailsService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)} 
+-----
+Date: 2024-04-05 12:06:44 - [restartedMain] INFO  
+Stopping service [Tomcat] 
+-----
+Date: 2024-04-05 12:06:44 - [restartedMain] WARN  
+Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server 
+-----
+Date: 2024-04-05 12:06:44 - [restartedMain] INFO  
+
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled. 
+-----
+Date: 2024-04-05 12:06:44 - [restartedMain] ERROR 
+
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field userDetailsService in com.spring_sec.spring_ms.util.WebSecurityConfig required a bean of type 'org.springframework.security.core.userdetails.UserDetailsService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.security.core.userdetails.UserDetailsService' in your configuration.
+ 
+-----
