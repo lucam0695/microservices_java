@@ -3091,3 +3091,414 @@ Action:
 Consider defining a bean of type 'org.springframework.security.core.userdetails.UserDetailsService' in your configuration.
  
 -----
+Date: 2024-04-05 15:06:00 - [restartedMain] INFO  
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+[32m :: Spring Boot :: [39m              [2m (v3.0.0)[0;39m
+
+ 
+-----
+Date: 2024-04-05 15:06:00 - [restartedMain] INFO  
+Starting SpringJwtApplication using Java 21.0.2 with PID 63452 (C:\Users\pacal\Desktop\ready2use\microservices_java\target\classes started by pacal in C:\Users\pacal\Desktop\ready2use\microservices_java) 
+-----
+Date: 2024-04-05 15:06:00 - [restartedMain] INFO  
+No active profile set, falling back to 1 default profile: "default" 
+-----
+Date: 2024-04-05 15:06:00 - [restartedMain] INFO  
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+-----
+Date: 2024-04-05 15:06:00 - [restartedMain] INFO  
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+-----
+Date: 2024-04-05 15:06:02 - [restartedMain] INFO  
+Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+-----
+Date: 2024-04-05 15:06:02 - [restartedMain] INFO  
+Finished Spring Data repository scanning in 160 ms. Found 2 JPA repository interfaces. 
+-----
+Date: 2024-04-05 15:06:05 - [restartedMain] INFO  
+Tomcat initialized with port(s): 8080 (http) 
+-----
+Date: 2024-04-05 15:06:05 - [restartedMain] INFO  
+Starting service [Tomcat] 
+-----
+Date: 2024-04-05 15:06:05 - [restartedMain] INFO  
+Starting Servlet engine: [Apache Tomcat/10.1.1] 
+-----
+Date: 2024-04-05 15:06:06 - [restartedMain] INFO  
+Initializing Spring embedded WebApplicationContext 
+-----
+Date: 2024-04-05 15:06:06 - [restartedMain] INFO  
+Root WebApplicationContext: initialization completed in 5360 ms 
+-----
+Date: 2024-04-05 15:06:07 - [restartedMain] INFO  
+HHH000204: Processing PersistenceUnitInfo [name: default] 
+-----
+Date: 2024-04-05 15:06:07 - [restartedMain] INFO  
+HHH000412: Hibernate ORM core version 6.1.5.Final 
+-----
+Date: 2024-04-05 15:06:07 - [restartedMain] WARN  
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead 
+-----
+Date: 2024-04-05 15:06:07 - [restartedMain] INFO  
+HikariPool-1 - Starting... 
+-----
+Date: 2024-04-05 15:06:08 - [restartedMain] INFO  
+HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1e2d3e76 
+-----
+Date: 2024-04-05 15:06:08 - [restartedMain] INFO  
+HikariPool-1 - Start completed. 
+-----
+Date: 2024-04-05 15:06:08 - [restartedMain] INFO  
+HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect 
+-----
+Date: 2024-04-05 15:06:10 - [restartedMain] INFO  
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+-----
+Date: 2024-04-05 15:06:10 - [restartedMain] INFO  
+Initialized JPA EntityManagerFactory for persistence unit 'default' 
+-----
+Date: 2024-04-05 15:06:11 - [restartedMain] INFO  
+Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2742edd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2acd4854, org.springframework.security.web.context.SecurityContextHolderFilter@59386e54, org.springframework.security.web.header.HeaderWriterFilter@68f42078, org.springframework.security.web.csrf.CsrfFilter@3347dd4, org.springframework.security.web.authentication.logout.LogoutFilter@3e989271, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7e965273, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4c517eb6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@14a647fc, org.springframework.security.web.access.ExceptionTranslationFilter@3396d11f] 
+-----
+Date: 2024-04-05 15:06:12 - [restartedMain] INFO  
+LiveReload server is running on port 35729 
+-----
+Date: 2024-04-05 15:06:12 - [restartedMain] INFO  
+Tomcat started on port(s): 8080 (http) with context path '' 
+-----
+Date: 2024-04-05 15:06:12 - [restartedMain] INFO  
+Started SpringJwtApplication in 13.412 seconds (process running for 14.467) 
+-----
+Date: 2024-04-05 15:06:17 - [http-nio-8080-exec-1] INFO  
+Initializing Spring DispatcherServlet 'dispatcherServlet' 
+-----
+Date: 2024-04-05 15:06:17 - [http-nio-8080-exec-1] INFO  
+Initializing Servlet 'dispatcherServlet' 
+-----
+Date: 2024-04-05 15:06:17 - [http-nio-8080-exec-1] INFO  
+Completed initialization in 2 ms 
+-----
+Date: 2024-04-05 15:07:42 - [File Watcher] INFO  
+Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+-----
+Date: 2024-04-05 15:07:42 - [Thread-5] INFO  
+Stopping service [Tomcat] 
+-----
+Date: 2024-04-05 15:07:42 - [Thread-5] INFO  
+Destroying Spring FrameworkServlet 'dispatcherServlet' 
+-----
+Date: 2024-04-05 15:07:42 - [Thread-5] WARN  
+The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1758)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583) 
+-----
+Date: 2024-04-05 15:07:42 - [Thread-5] INFO  
+Closing JPA EntityManagerFactory for persistence unit 'default' 
+-----
+Date: 2024-04-05 15:07:42 - [Thread-5] INFO  
+HikariPool-1 - Shutdown initiated... 
+-----
+Date: 2024-04-05 15:07:42 - [Thread-5] INFO  
+HikariPool-1 - Shutdown completed. 
+-----
+Date: 2024-04-05 15:07:43 - [restartedMain] INFO  
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+[32m :: Spring Boot :: [39m              [2m (v3.0.0)[0;39m
+
+ 
+-----
+Date: 2024-04-05 15:07:43 - [restartedMain] INFO  
+Starting SpringJwtApplication using Java 21.0.2 with PID 63452 (C:\Users\pacal\Desktop\ready2use\microservices_java\target\classes started by pacal in C:\Users\pacal\Desktop\ready2use\microservices_java) 
+-----
+Date: 2024-04-05 15:07:43 - [restartedMain] INFO  
+No active profile set, falling back to 1 default profile: "default" 
+-----
+Date: 2024-04-05 15:07:43 - [restartedMain] INFO  
+Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+-----
+Date: 2024-04-05 15:07:43 - [restartedMain] INFO  
+Finished Spring Data repository scanning in 54 ms. Found 2 JPA repository interfaces. 
+-----
+Date: 2024-04-05 15:07:44 - [restartedMain] INFO  
+Tomcat initialized with port(s): 8080 (http) 
+-----
+Date: 2024-04-05 15:07:44 - [restartedMain] INFO  
+Starting service [Tomcat] 
+-----
+Date: 2024-04-05 15:07:44 - [restartedMain] INFO  
+Starting Servlet engine: [Apache Tomcat/10.1.1] 
+-----
+Date: 2024-04-05 15:07:44 - [restartedMain] INFO  
+Initializing Spring embedded WebApplicationContext 
+-----
+Date: 2024-04-05 15:07:44 - [restartedMain] INFO  
+Root WebApplicationContext: initialization completed in 993 ms 
+-----
+Date: 2024-04-05 15:07:44 - [restartedMain] INFO  
+HHH000204: Processing PersistenceUnitInfo [name: default] 
+-----
+Date: 2024-04-05 15:07:44 - [restartedMain] WARN  
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead 
+-----
+Date: 2024-04-05 15:07:44 - [restartedMain] INFO  
+HikariPool-2 - Starting... 
+-----
+Date: 2024-04-05 15:07:44 - [restartedMain] INFO  
+HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@5d374c5e 
+-----
+Date: 2024-04-05 15:07:44 - [restartedMain] INFO  
+HikariPool-2 - Start completed. 
+-----
+Date: 2024-04-05 15:07:44 - [restartedMain] INFO  
+HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect 
+-----
+Date: 2024-04-05 15:07:44 - [restartedMain] INFO  
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+-----
+Date: 2024-04-05 15:07:44 - [restartedMain] INFO  
+Initialized JPA EntityManagerFactory for persistence unit 'default' 
+-----
+Date: 2024-04-05 15:07:45 - [restartedMain] INFO  
+Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5bfa0034, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2684e9a2, org.springframework.security.web.context.SecurityContextHolderFilter@641925f0, org.springframework.security.web.header.HeaderWriterFilter@71a1c815, org.springframework.web.filter.CorsFilter@2f19740d, org.springframework.security.web.authentication.logout.LogoutFilter@715dc042, com.spring_sec.spring_ms.util.security.jwt.AuthTokenFilter@15a7dba, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5be2ff90, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1748cf1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@d723443, org.springframework.security.web.session.SessionManagementFilter@50a09ad9, org.springframework.security.web.access.ExceptionTranslationFilter@1a9e264b, org.springframework.security.web.access.intercept.AuthorizationFilter@66e88421] 
+-----
+Date: 2024-04-05 15:07:45 - [restartedMain] INFO  
+LiveReload server is running on port 35729 
+-----
+Date: 2024-04-05 15:07:45 - [restartedMain] INFO  
+Tomcat started on port(s): 8080 (http) with context path '' 
+-----
+Date: 2024-04-05 15:07:45 - [restartedMain] INFO  
+Started SpringJwtApplication in 2.427 seconds (process running for 107.247) 
+-----
+Date: 2024-04-05 15:07:45 - [restartedMain] INFO  
+Condition evaluation unchanged 
+-----
+Date: 2024-04-05 15:09:30 - [File Watcher] INFO  
+Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+-----
+Date: 2024-04-05 15:09:30 - [Thread-7] INFO  
+Stopping service [Tomcat] 
+-----
+Date: 2024-04-05 15:09:30 - [Thread-7] WARN  
+The web application [ROOT] appears to have started a thread named [HikariPool-2 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1758)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583) 
+-----
+Date: 2024-04-05 15:09:30 - [Thread-7] INFO  
+Closing JPA EntityManagerFactory for persistence unit 'default' 
+-----
+Date: 2024-04-05 15:09:30 - [Thread-7] INFO  
+HikariPool-2 - Shutdown initiated... 
+-----
+Date: 2024-04-05 15:09:30 - [Thread-7] INFO  
+HikariPool-2 - Shutdown completed. 
+-----
+Date: 2024-04-05 15:09:30 - [restartedMain] INFO  
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+[32m :: Spring Boot :: [39m              [2m (v3.0.0)[0;39m
+
+ 
+-----
+Date: 2024-04-05 15:09:30 - [restartedMain] INFO  
+Starting SpringJwtApplication using Java 21.0.2 with PID 63452 (C:\Users\pacal\Desktop\ready2use\microservices_java\target\classes started by pacal in C:\Users\pacal\Desktop\ready2use\microservices_java) 
+-----
+Date: 2024-04-05 15:09:30 - [restartedMain] INFO  
+No active profile set, falling back to 1 default profile: "default" 
+-----
+Date: 2024-04-05 15:09:30 - [restartedMain] INFO  
+Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+-----
+Date: 2024-04-05 15:09:30 - [restartedMain] INFO  
+Finished Spring Data repository scanning in 40 ms. Found 2 JPA repository interfaces. 
+-----
+Date: 2024-04-05 15:09:31 - [restartedMain] INFO  
+Tomcat initialized with port(s): 8080 (http) 
+-----
+Date: 2024-04-05 15:09:31 - [restartedMain] INFO  
+Starting service [Tomcat] 
+-----
+Date: 2024-04-05 15:09:31 - [restartedMain] INFO  
+Starting Servlet engine: [Apache Tomcat/10.1.1] 
+-----
+Date: 2024-04-05 15:09:31 - [restartedMain] INFO  
+Initializing Spring embedded WebApplicationContext 
+-----
+Date: 2024-04-05 15:09:31 - [restartedMain] INFO  
+Root WebApplicationContext: initialization completed in 790 ms 
+-----
+Date: 2024-04-05 15:09:31 - [restartedMain] INFO  
+HHH000204: Processing PersistenceUnitInfo [name: default] 
+-----
+Date: 2024-04-05 15:09:31 - [restartedMain] WARN  
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead 
+-----
+Date: 2024-04-05 15:09:31 - [restartedMain] INFO  
+HikariPool-3 - Starting... 
+-----
+Date: 2024-04-05 15:09:31 - [restartedMain] INFO  
+HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@173bb960 
+-----
+Date: 2024-04-05 15:09:31 - [restartedMain] INFO  
+HikariPool-3 - Start completed. 
+-----
+Date: 2024-04-05 15:09:31 - [restartedMain] INFO  
+HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect 
+-----
+Date: 2024-04-05 15:09:31 - [restartedMain] INFO  
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+-----
+Date: 2024-04-05 15:09:31 - [restartedMain] INFO  
+Initialized JPA EntityManagerFactory for persistence unit 'default' 
+-----
+Date: 2024-04-05 15:09:32 - [restartedMain] INFO  
+Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5170c996, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2cffe013, org.springframework.security.web.context.SecurityContextHolderFilter@20b9f5d7, org.springframework.security.web.header.HeaderWriterFilter@5b95e12c, org.springframework.web.filter.CorsFilter@5fad985f, org.springframework.security.web.authentication.logout.LogoutFilter@35f9017a, com.spring_sec.spring_ms.util.security.jwt.AuthTokenFilter@3e249c5f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6c90706a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@18f86055, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7ec25075, org.springframework.security.web.session.SessionManagementFilter@267c88f2, org.springframework.security.web.access.ExceptionTranslationFilter@70c7944e, org.springframework.security.web.access.intercept.AuthorizationFilter@1a41d52] 
+-----
+Date: 2024-04-05 15:09:32 - [restartedMain] INFO  
+LiveReload server is running on port 35729 
+-----
+Date: 2024-04-05 15:09:32 - [restartedMain] INFO  
+Tomcat started on port(s): 8080 (http) with context path '' 
+-----
+Date: 2024-04-05 15:09:32 - [restartedMain] INFO  
+Started SpringJwtApplication in 1.902 seconds (process running for 213.93) 
+-----
+Date: 2024-04-05 15:09:32 - [restartedMain] INFO  
+Condition evaluation unchanged 
+-----
+Date: 2024-04-05 15:10:32 - [File Watcher] INFO  
+Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+-----
+Date: 2024-04-05 15:10:32 - [Thread-11] INFO  
+Stopping service [Tomcat] 
+-----
+Date: 2024-04-05 15:10:32 - [Thread-11] WARN  
+The web application [ROOT] appears to have started a thread named [HikariPool-3 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1758)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583) 
+-----
+Date: 2024-04-05 15:10:32 - [Thread-11] INFO  
+Closing JPA EntityManagerFactory for persistence unit 'default' 
+-----
+Date: 2024-04-05 15:10:32 - [Thread-11] INFO  
+HikariPool-3 - Shutdown initiated... 
+-----
+Date: 2024-04-05 15:10:32 - [Thread-11] INFO  
+HikariPool-3 - Shutdown completed. 
+-----
+Date: 2024-04-05 15:10:32 - [restartedMain] INFO  
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+[32m :: Spring Boot :: [39m              [2m (v3.0.0)[0;39m
+
+ 
+-----
+Date: 2024-04-05 15:10:32 - [restartedMain] INFO  
+Starting SpringJwtApplication using Java 21.0.2 with PID 63452 (C:\Users\pacal\Desktop\ready2use\microservices_java\target\classes started by pacal in C:\Users\pacal\Desktop\ready2use\microservices_java) 
+-----
+Date: 2024-04-05 15:10:32 - [restartedMain] INFO  
+No active profile set, falling back to 1 default profile: "default" 
+-----
+Date: 2024-04-05 15:10:33 - [restartedMain] INFO  
+Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+-----
+Date: 2024-04-05 15:10:33 - [restartedMain] INFO  
+Finished Spring Data repository scanning in 32 ms. Found 2 JPA repository interfaces. 
+-----
+Date: 2024-04-05 15:10:33 - [restartedMain] INFO  
+Tomcat initialized with port(s): 8080 (http) 
+-----
+Date: 2024-04-05 15:10:33 - [restartedMain] INFO  
+Starting service [Tomcat] 
+-----
+Date: 2024-04-05 15:10:33 - [restartedMain] INFO  
+Starting Servlet engine: [Apache Tomcat/10.1.1] 
+-----
+Date: 2024-04-05 15:10:33 - [restartedMain] INFO  
+Initializing Spring embedded WebApplicationContext 
+-----
+Date: 2024-04-05 15:10:33 - [restartedMain] INFO  
+Root WebApplicationContext: initialization completed in 682 ms 
+-----
+Date: 2024-04-05 15:10:33 - [restartedMain] INFO  
+HHH000204: Processing PersistenceUnitInfo [name: default] 
+-----
+Date: 2024-04-05 15:10:33 - [restartedMain] WARN  
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead 
+-----
+Date: 2024-04-05 15:10:33 - [restartedMain] INFO  
+HikariPool-4 - Starting... 
+-----
+Date: 2024-04-05 15:10:33 - [restartedMain] INFO  
+HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@5c7b409a 
+-----
+Date: 2024-04-05 15:10:33 - [restartedMain] INFO  
+HikariPool-4 - Start completed. 
+-----
+Date: 2024-04-05 15:10:33 - [restartedMain] INFO  
+HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect 
+-----
+Date: 2024-04-05 15:10:33 - [restartedMain] INFO  
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+-----
+Date: 2024-04-05 15:10:33 - [restartedMain] INFO  
+Initialized JPA EntityManagerFactory for persistence unit 'default' 
+-----
+Date: 2024-04-05 15:10:34 - [restartedMain] INFO  
+Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6dfa375, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35367db3, org.springframework.security.web.context.SecurityContextHolderFilter@4984dc5a, org.springframework.security.web.header.HeaderWriterFilter@5020a224, org.springframework.web.filter.CorsFilter@22083323, org.springframework.security.web.authentication.logout.LogoutFilter@613a5c09, com.spring_sec.spring_ms.util.security.jwt.AuthTokenFilter@14912fa2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@741314d5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2177a9f1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@9ede0d0, org.springframework.security.web.session.SessionManagementFilter@3d225927, org.springframework.security.web.access.ExceptionTranslationFilter@1bf4cbd4, org.springframework.security.web.access.intercept.AuthorizationFilter@11c7513b] 
+-----
+Date: 2024-04-05 15:10:34 - [restartedMain] INFO  
+LiveReload server is running on port 35729 
+-----
+Date: 2024-04-05 15:10:34 - [restartedMain] INFO  
+Tomcat started on port(s): 8080 (http) with context path '' 
+-----
+Date: 2024-04-05 15:10:34 - [restartedMain] INFO  
+Started SpringJwtApplication in 1.669 seconds (process running for 275.974) 
+-----
+Date: 2024-04-05 15:10:34 - [restartedMain] INFO  
+Condition evaluation unchanged 
+-----

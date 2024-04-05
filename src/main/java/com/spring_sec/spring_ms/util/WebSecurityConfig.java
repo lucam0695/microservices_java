@@ -1,5 +1,6 @@
 package com.spring_sec.spring_ms.util;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,9 +18,11 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
 
+import com.spring_sec.spring_ms.model.Role;
 import com.spring_sec.spring_ms.util.security.jwt.AuthEntryPointJwt;
 import com.spring_sec.spring_ms.util.security.jwt.AuthTokenFilter;
 import com.spring_sec.spring_ms.util.security.services.UserDetailsServiceImpl;
+
 
 @EnableWebSecurity
 @Configuration
@@ -30,6 +33,7 @@ import com.spring_sec.spring_ms.util.security.services.UserDetailsServiceImpl;
 public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
   @Autowired
   UserDetailsServiceImpl userDetailsService;
+
 
   @Autowired
   private AuthEntryPointJwt unauthorizedHandler;
@@ -67,6 +71,7 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
         .authorizeHttpRequests().requestMatchers("/api/auth/**").permitAll()
         .requestMatchers("/api/test/**").permitAll()
         .requestMatchers("/uploads/**").permitAll()
+        .requestMatchers("/api/user/**").hasAnyRole(Role.ADMIN.toString())
         .anyRequest().authenticated()
         .and()
         .logout()
