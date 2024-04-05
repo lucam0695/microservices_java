@@ -55,7 +55,7 @@ public class AuthController {
       UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
       System.out.println(userDetails);
       if (userDetails.getStatus() != Status.FREE) {
-        return new ResponseEntity<>("This account has banned", HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity<>("This account has been banned", HttpStatus.UNAUTHORIZED);
       }
       return ResponseEntity.ok(new JwtResponse(jwt,
         userDetails.getId(),

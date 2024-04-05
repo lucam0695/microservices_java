@@ -1,4 +1,4 @@
-package com.felladevacademy.spring_jwt;
+package com.luca_ms.spring_jwt;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
