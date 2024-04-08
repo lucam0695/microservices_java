@@ -1,5 +1,6 @@
 package com.spring_sec.spring_ms.util.security.services;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
@@ -10,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.spring_sec.spring_ms.model.Role;
-import com.spring_sec.spring_ms.model.Status;
 import com.spring_sec.spring_ms.model.UserMs;
 
 import lombok.AllArgsConstructor;
@@ -32,13 +32,13 @@ public class UserDetailsImpl implements UserDetails {
 
   private String role;
 
-  private Status status;
+  private LocalDateTime blockedAt;
   
 
-  public UserDetailsImpl(Role userRole, Status userStatus, Long id, String username, String email,
+  public UserDetailsImpl(Role userRole, LocalDateTime blockedAt, Long id, String username, String email,
   String password) {
     this.role = userRole.toString();
-    this.status = userStatus;
+    this.blockedAt = blockedAt;
     this.id = id;
     this.username = username;
     this.email = email;
@@ -48,7 +48,7 @@ public class UserDetailsImpl implements UserDetails {
   public static UserDetailsImpl build(UserMs user) {
       return new UserDetailsImpl(
         user.getUserRole(),
-        user.getUserStatus(),
+        user.getBlockedAt(),
         user.getId(),
         user.getUsername(),
         user.getEmail(),

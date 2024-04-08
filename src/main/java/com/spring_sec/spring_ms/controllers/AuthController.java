@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring_sec.spring_ms.model.Status;
 import com.spring_sec.spring_ms.model.UserMs;
 import com.spring_sec.spring_ms.payload.request.LoginRequest;
 import com.spring_sec.spring_ms.payload.request.SignupRequest;
@@ -68,8 +67,8 @@ public class AuthController {
       SecurityContextHolder.getContext().setAuthentication(authentication);
       String jwt = jwtUtils.generateJwtToken(authentication);
       UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-      // System.out.println(userDetails);
-      if (userDetails.getStatus() != Status.FREE) {
+
+      if (userDetails.getBlockedAt() != null) {
         return new ResponseEntity<>("This account has banned", HttpStatus.UNAUTHORIZED);
       }
       return ResponseEntity.ok(new JwtResponse(jwt,
