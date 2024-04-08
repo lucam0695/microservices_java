@@ -8,6 +8,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,11 +24,11 @@ import com.spring_sec.spring_ms.payload.response.JwtResponse;
 import com.spring_sec.spring_ms.payload.response.MessageResponse;
 import com.spring_sec.spring_ms.repository.UserRepository;
 import com.spring_sec.spring_ms.util.security.jwt.JwtUtils;
+import com.spring_sec.spring_ms.util.security.services.InMemoryTokenBlacklist;
 import com.spring_sec.spring_ms.util.security.services.UserDetailsImpl;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 @RestController
 @RequestMapping("/api/auth")
@@ -43,8 +44,19 @@ public class AuthController {
   PasswordEncoder encoder;
 
   @Autowired
+  InMemoryTokenBlacklist tokenBlacklist;
+
+  @Autowired
   JwtUtils jwtUtils;
 
+  public String extractTokenFromRequest(HttpServletRequest request) {
+    String authorizationHeader = request.getHeader("Authorization");
+
+    if (StringUtils.hasText(authorizationHeader) && authorizationHeader.startsWith("Bearer ")) {
+      return authorizationHeader.substring(7);
+    }
+    return null;
+  }
 
   @PostMapping(path = "/login")
   public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
@@ -61,16 +73,15 @@ public class AuthController {
         return new ResponseEntity<>("This account has banned", HttpStatus.UNAUTHORIZED);
       }
       return ResponseEntity.ok(new JwtResponse(jwt,
-        userDetails.getId(),
-        userDetails.getUsername(),
-        userDetails.getEmail()));
+          userDetails.getId(),
+          userDetails.getUsername(),
+          userDetails.getEmail()));
     } catch (Exception e) {
       System.out.println(e.getMessage());
       e.printStackTrace();
       return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
-
 
   @PostMapping("/signup")
   public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
@@ -90,10 +101,16 @@ public class AuthController {
     UserMs user = new UserMs(signUpRequest.getUserName(),
         signUpRequest.getEmail(),
         encoder.encode(signUpRequest.getPassword()));
-      userRepository.save(user);
+    userRepository.save(user);
 
     return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
   }
-  
-  
+
+  @PostMapping(path = "/logout")
+  public ResponseEntity<String> logout(HttpServletRequest request) {
+    String token = extractTokenFromRequest(request);
+    tokenBlacklist.addToBlacklist(token);
+    return ResponseEntity.ok("Logged out successfully");
+  }
+
 }
