@@ -9,11 +9,17 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.fge.jsonpatch.JsonPatch;
+import com.github.fge.jsonpatch.JsonPatchException;
 import com.spring_sec.spring_ms.model.UserMs;
 import com.spring_sec.spring_ms.util.security.services.ProfileService;
 import com.spring_sec.spring_ms.util.security.services.UserDetailsImpl;
@@ -30,10 +36,17 @@ public class ProfileController {
     @Autowired
     private UserService userService;
 
+    private final ObjectMapper objectMapper = new ObjectMapper();
+
+    private UserMs applyPatchToUser(JsonPatch patch, UserMs targetUser) throws JsonPatchException, JsonProcessingException {
+        JsonNode patched = patch.apply(objectMapper.convertValue(targetUser, JsonNode.class));
+        return objectMapper.treeToValue(patched, UserMs.class);
+    }
+
     @GetMapping(path = "/profile")
     public ResponseEntity<UserMs> profile() {
-
-        UserDetailsImpl authentication = (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserDetailsImpl authentication = (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
         Long currentId = authentication.getId();
         Optional<UserMs> user = profileService.findById(currentId);
         if (user.isPresent()) {
@@ -54,9 +67,35 @@ public class ProfileController {
         return new ResponseEntity<>(userUpdated, HttpStatus.OK);
     }
 
+    @PatchMapping(path = "/profile", consumes = "application/json-patch+json")
+    public ResponseEntity<?> updatePatch(@RequestBody JsonPatch patch) {
+        UserDetailsImpl authentication = (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
+        Long currentId = authentication.getId();
+        try {
+            UserMs user;
+            Optional<UserMs> userResult = userService.findById(currentId);
+            if (userResult.isPresent()) {
+                user = userResult.get();
+            } else{
+                return ResponseEntity.badRequest().body("User not found!");
+            }
+            UserMs userPatched = applyPatchToUser(patch, user);
+            userService.update(currentId, userPatched);
+            return ResponseEntity.ok(userPatched);
+            
+        } catch (JsonPatchException | JsonProcessingException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
+
     @DeleteMapping(path = "/profile")
     public ResponseEntity<String> delete() {
-        UserDetailsImpl authentication = (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserDetailsImpl authentication = (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
         Long currentId = authentication.getId();
         userService.delete(currentId);
         return new ResponseEntity<>("User deleted", HttpStatus.OK);

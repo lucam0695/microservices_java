@@ -12,6 +12,7 @@ import com.spring_sec.spring_ms.util.security.services.UserDetailsImpl;
 
 import io.jsonwebtoken.*;
 
+@SuppressWarnings("deprecation")
 @Component
 public class JwtUtils {
   private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);

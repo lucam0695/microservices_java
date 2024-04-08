@@ -21,10 +21,11 @@ import com.spring_sec.spring_ms.util.security.jwt.AuthEntryPointJwt;
 import com.spring_sec.spring_ms.util.security.jwt.AuthTokenFilter;
 import com.spring_sec.spring_ms.util.security.services.UserDetailsServiceImpl;
 
+import jakarta.servlet.ServletException;
+
 @EnableWebSecurity
 @Configuration
-@EnableMethodSecurity(
-    securedEnabled = true,
+@EnableMethodSecurity(securedEnabled = true,
     // jsr250Enabled = true,
     prePostEnabled = true)
 public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
@@ -61,17 +62,30 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
 
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-    http.cors().and().csrf().disable()
-        .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-        .authorizeHttpRequests().requestMatchers("/api/auth/**").permitAll()
-        .requestMatchers("/api/test/**").permitAll()
-        .requestMatchers("/uploads/**").permitAll()
-        .anyRequest().authenticated()
-        .and()
-        .logout()
-        .logoutUrl("/api/logout")
-        .logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler(HttpStatus.OK));
+      http.cors(cors -> cors.disable())
+              .csrf(csrf -> csrf
+                      .disable())
+              .exceptionHandling(handling -> handling
+                      .authenticationEntryPoint(unauthorizedHandler))
+              .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+              .authorizeHttpRequests(requests -> requests
+                      .requestMatchers("/api/auth/**")
+                      .permitAll()
+                      .requestMatchers("/api/test/**")
+                      .permitAll()
+                      .anyRequest()
+                      .authenticated())
+              .logout(logout -> logout
+                      .logoutUrl("/api/logout")
+                      .clearAuthentication(true)
+                      .addLogoutHandler((request, response, auth) -> {
+                          try {
+                              request.logout();
+                          } catch (ServletException e) {
+                              System.out.println(e.getMessage());
+                          }
+                      })
+                      .logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler(HttpStatus.OK)));
 
     http.authenticationProvider(authenticationProvider());
 
