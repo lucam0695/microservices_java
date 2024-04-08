@@ -1,5 +1,6 @@
 package com.spring_sec.spring_ms.util.security.services;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,11 +43,15 @@ public class UserService {
         }
     }
 
-    public UserMs changeStatus(Long id, UserMs user){
+    public UserMs blockUnblockUsers(Long id){
         Optional<UserMs> userResult = userRepository.findById(id);
         if (userResult.isPresent()) {
             UserMs userUpdated = userResult.get();
-            userUpdated.setUserStatus(user.getUserStatus());
+            if(userUpdated.getBlockedAt() != null){
+                userUpdated.setBlockedAt(null);
+            } else {
+                userUpdated.setBlockedAt(LocalDateTime.now());
+            }
             userRepository.save(userUpdated);
             return userUpdated;
         } else{

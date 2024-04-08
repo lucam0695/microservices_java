@@ -12,6 +12,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.spring_sec.spring_ms.util.security.services.InMemoryTokenBlacklist;
 import com.spring_sec.spring_ms.util.security.services.UserDetailsServiceImpl;
 
 import jakarta.servlet.FilterChain;
@@ -19,13 +20,15 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
 public class AuthTokenFilter extends OncePerRequestFilter {
   @Autowired
   private JwtUtils jwtUtils;
 
   @Autowired
   private UserDetailsServiceImpl userDetailsService;
+
+  @Autowired
+  InMemoryTokenBlacklist tokenBlacklist;
 
   private static final Logger logger = LoggerFactory.getLogger(AuthTokenFilter.class);
 
@@ -35,17 +38,21 @@ public class AuthTokenFilter extends OncePerRequestFilter {
     try {
       String jwt = parseJwt(request);
       if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
-        String userName = jwtUtils.getUserNameFromJwtToken(jwt);
 
-        UserDetails userDetails = userDetailsService.loadUserByUsername(userName);
-        UsernamePasswordAuthenticationToken authentication =
-            new UsernamePasswordAuthenticationToken(
-                userDetails,
-                null,
-                userDetails.getAuthorities());
-        authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+        if (!tokenBlacklist.isBlacklisted(jwt)) {
+          String userName = jwtUtils.getUserNameFromJwtToken(jwt);
 
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+          UserDetails userDetails = userDetailsService.loadUserByUsername(userName);
+          UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+              userDetails,
+              null,
+              userDetails.getAuthorities());
+          authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+
+          SecurityContextHolder.getContext().setAuthentication(authentication);
+        }
+      } else {
+        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
       }
     } catch (Exception e) {
       logger.error("Cannot set user authentication: {}", e);

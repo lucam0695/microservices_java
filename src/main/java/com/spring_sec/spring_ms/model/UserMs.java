@@ -1,6 +1,8 @@
 package com.spring_sec.spring_ms.model;
 
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -29,16 +31,14 @@ public class UserMs {
   @Column(name = "Role")
   private Role userRole;
 
-  @Enumerated(EnumType.STRING)
-  @Column(name = "Status")
-  private Status userStatus;
+  private LocalDateTime blockedAt;
 
   public UserMs(String username, String email, String password) {
     this.username = username;
     this.email = email;
     this.password = password;
     this.userRole = Role.USER;
-    this.userStatus = Status.FREE;
+    this.blockedAt = null;
   }
 
 }

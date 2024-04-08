@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 
 import com.spring_sec.spring_ms.util.security.jwt.AuthEntryPointJwt;
 import com.spring_sec.spring_ms.util.security.jwt.AuthTokenFilter;
@@ -74,18 +75,12 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
                       .requestMatchers("/api/test/**")
                       .permitAll()
                       .anyRequest()
-                      .authenticated())
-              .logout(logout -> logout
-                      .logoutUrl("/api/logout")
-                      .clearAuthentication(true)
-                      .addLogoutHandler((request, response, auth) -> {
-                          try {
-                              request.logout();
-                          } catch (ServletException e) {
-                              System.out.println(e.getMessage());
-                          }
-                      })
-                      .logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler(HttpStatus.OK)));
+                      .authenticated());
+              // .logout(logout -> logout
+              //         .logoutUrl("/api/logout")
+              //         .clearAuthentication(true)
+              //         .addLogoutHandler(new SecurityContextLogoutHandler())
+              //         .logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler(HttpStatus.OK)));
 
     http.authenticationProvider(authenticationProvider());
 

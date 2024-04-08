@@ -105,9 +105,9 @@ public class UserController {
         }
     }
 
-    @PutMapping(path = "/user/status/{id}")
-    public ResponseEntity<UserMs> changeStatus(@PathVariable Long id, @RequestBody UserMs user ){
-        UserMs userUpdated = userService.changeStatus(id, user);
+    @GetMapping(path = "/user/block/{id}")
+    public ResponseEntity<UserMs> blockUsers(@PathVariable Long id ){
+        UserMs userUpdated = userService.blockUnblockUsers(id);
 		return new ResponseEntity<>(userUpdated, HttpStatus.OK);
     }
 
