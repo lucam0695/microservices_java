@@ -9,6 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,8 @@ import com.spring_sec.spring_ms.util.security.jwt.JwtUtils;
 import com.spring_sec.spring_ms.util.security.services.UserDetailsImpl;
 
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/api/auth")
@@ -53,7 +56,7 @@ public class AuthController {
       SecurityContextHolder.getContext().setAuthentication(authentication);
       String jwt = jwtUtils.generateJwtToken(authentication);
       UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-      System.out.println(userDetails);
+      // System.out.println(userDetails);
       if (userDetails.getStatus() != Status.FREE) {
         return new ResponseEntity<>("This account has banned", HttpStatus.UNAUTHORIZED);
       }
@@ -91,4 +94,6 @@ public class AuthController {
 
     return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
   }
+  
+  
 }

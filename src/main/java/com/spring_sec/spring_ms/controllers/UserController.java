@@ -81,10 +81,8 @@ public class UserController {
 		return new ResponseEntity<>(userUpdated, HttpStatus.OK);
     }
 
-    // DA FIXARE
     @PatchMapping(path = "/user", consumes = "application/json-patch+json")
     public ResponseEntity<?> updatePatch(@RequestBody JsonPatch patch) {
-        System.out.println("richiesta ricevuta");
         UserDetailsImpl authentication = (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication()
                 .getPrincipal();
         Long currentId = authentication.getId();
