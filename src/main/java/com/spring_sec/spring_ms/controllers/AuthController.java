@@ -67,15 +67,9 @@ public class AuthController {
       SecurityContextHolder.getContext().setAuthentication(authentication);
       String jwt = jwtUtils.generateJwtToken(authentication);
       UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-<<<<<<< HEAD
-      // System.out.println(userDetails);
-      if (userDetails.getStatus() != Status.FREE) {
-        return new ResponseEntity<>("This account has been banned", HttpStatus.UNAUTHORIZED);
-=======
 
       if (userDetails.getBlockedAt() != null) {
         return new ResponseEntity<>("This account has banned", HttpStatus.UNAUTHORIZED);
->>>>>>> jwtTest
       }
       return ResponseEntity.ok(new JwtResponse(jwt,
           userDetails.getId(),
